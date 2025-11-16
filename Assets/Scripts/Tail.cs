@@ -10,12 +10,14 @@ public class Tail : MonoBehaviour
     private float _snakeSpeed = 2f;
     private List<Transform> _details = new List<Transform>();
     private List<Vector3> _positionHistory = new List<Vector3>();
-    private List<Quaternion> _rotationHistory = new List<Quaternion>(); 
+    private List<Quaternion> _rotationHistory = new List<Quaternion>();
+    private Material _skin;
 
-    public void Init(Transform head, float speed, int detailCount)
+    public void Init(Transform head, float speed, int detailCount, Material skin)
     {
         _snakeSpeed = speed;
         _head = head;
+        _skin = skin;
          
         _details.Add(transform);
         _positionHistory.Add(_head.position);
@@ -24,6 +26,8 @@ public class Tail : MonoBehaviour
         _rotationHistory.Add(transform.rotation);
 
         SetDetailCount(detailCount);
+
+        GetComponent<SetSkin>().Set(_skin);
     }
 
     public void SetDetailCount(int detailCount)
@@ -56,6 +60,7 @@ public class Tail : MonoBehaviour
         _details.Insert(0, detail);
         _positionHistory.Add(position);
         _rotationHistory.Add(rotation);
+        detail.GetComponent<SetSkin>().Set(_skin);
     }
 
 

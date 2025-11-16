@@ -8,6 +8,8 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 {
     #region Server
 
+    [field: SerializeField] public Skins _skins;
+
     private const string GameRoomName = "state_handler";
 
     private ColyseusRoom<State> _room;
@@ -22,7 +24,12 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
 
     private async void Connection()
     {
-        _room = await client.JoinOrCreate<State>(GameRoomName);
+
+        Dictionary<string, object> data = new Dictionary<string, object>()
+        {
+            { "skins", _skins.lenght }
+        };
+        _room = await client.JoinOrCreate<State>(GameRoomName, data);
 
         _room.OnStateChange += OnChange;
     }
@@ -70,10 +77,12 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
     {
         Vector3 position = new Vector3(player.x, 0, player.z);
         Quaternion quaternion = Quaternion.identity;
-        
-        Snake snake = Instantiate(_snakePrefab, position, quaternion);
-        snake.Init(player.d);
 
+        Material skin = _skins.GetMaterial(player.skin);
+        Snake snake = Instantiate(_snakePrefab, position, quaternion);
+        snake.Init(player.d, skin);
+        Debug.Log("player skin");
+        Debug.Log(skin);
         PlayerAim aim = Instantiate(_playerAim, position, quaternion);
         aim.Init(snake.Speed);
 
@@ -90,8 +99,11 @@ public class MultiplayerManager : ColyseusManager<MultiplayerManager>
     private void CreateEnemy(string key, Player player)
     {
         Vector3 position = new Vector3(player.x, 0, player.z);
+        Material skin = _skins.GetMaterial(player.skin);
+        Debug.Log("eme,y skin");
+        Debug.Log(skin);
         Snake snake = Instantiate(_snakePrefab, position, Quaternion.identity);
-        snake.Init(player.d);
+        snake.Init(player.d, skin);
         EnemyController enemy = snake.AddComponent<EnemyController>();
         enemy.Init(player, snake);
         _enemies.Add(key, enemy);

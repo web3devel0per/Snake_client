@@ -9,10 +9,12 @@ public class Snake : MonoBehaviour
     [SerializeField] private float _speed = 2f;
     private Tail _tail;
 
-    public void Init(int detailCount)
+    public void Init(int detailCount, Material skin)
     {
         _tail = Instantiate(_tailPrefab, transform.position, Quaternion.identity);
-        _tail.Init(_head, _speed, detailCount);
+        _tail.Init(_head, _speed, detailCount, skin);
+
+        GetComponent<SetSkin>().Set(skin);
     }
 
     public void SetDetailCount(int detailCount)
