@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
     public float Speed { get { return _speed; }}
 
+    [SerializeField] private TextMeshProUGUI _playerLoginText;
     [SerializeField] private int _playerLayer = 6;
     [SerializeField] private Tail _tailPrefab;
     [field: SerializeField] public Transform _head { get; private set; }
@@ -12,8 +14,11 @@ public class Snake : MonoBehaviour
 
     public void Init(int detailCount, Material skin, bool isPlayer = false)
     {
+        _playerLoginText.text = PlayerSettings.Instance.Login;
         if (isPlayer)
         {
+            _playerLoginText.gameObject.SetActive(false);
+
             gameObject.layer = _playerLayer;
 
             var childrens = GetComponentsInChildren<Transform>();

@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NickName
+  m_text: assdasdass
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c540f57b4aa0e4396cadfeb88f8eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snake
+  _playerLoginText: {fileID: 7641646681740562018}
   _playerLayer: 6
   _tailPrefab: {fileID: 780338018069507691, guid: 8b0d605d34a3ae9458b3d717e46730f7, type: 3}
   <_head>k__BackingField: {fileID: 3421042393209317924}
