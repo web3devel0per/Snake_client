@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 780338018069507691}
   - component: {fileID: 7324067176581962733}
   - component: {fileID: 7588706610961091266}
+  - component: {fileID: 8054742070088845369}
   m_Layer: 0
   m_Name: Tail
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetSkin
   _meshRenderers:
   - {fileID: 7448774180338951395}
+--- !u!114 &8054742070088845369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3211716197151957066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a57ebb5bce2bc488d8bb260723215b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathParticle
+  _deathParticle: {fileID: 6337447475170569117, guid: f18bc8e86746677419b9e0340a6aa844, type: 3}
 --- !u!1001 &2874667504215051036
 PrefabInstance:
   m_ObjectHideFlags: 0
